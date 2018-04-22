@@ -1,0 +1,66 @@
+﻿
+@using WEBUI.Models.Helpers;
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzxYV3RHLfsFlryZzBzKcdlNpJt0Idyk4&libraries=places"></script>
+<script src="~/Scripts/Views/vLocation.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-4" data-step="1" data-intro="Bienvenido a la administración de locaciones, en esta vista podrá crear, actualizar y eliminar locaciones. ">Gestión de Locaciones</h1>
+<div class="col-3" data-step="2" data-intro="Seguidamente la funcionabilidad de  'crear lugar', en esta sección podrá hacer la creación de los respectivas locaciones que desee ">
+
+
+    @Html.CtrlButton(viewName: "vLocation", id: "btnOpenModal", label: "Crear Lugar", onClickFunction: "OpenModal")
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+
+</div>
+<div data-step="4" data-intro="Lista de todas las locaciones registradas previamente en el sistema, que podrá gestionar de igual forma con solo presionar una de las locaciones en la lista">
+
+    @Html.CtrlTable(viewName: "vLocation", id: "tblLocation", title: "Lista lugares",
+                columnsTitle: "ID,Nombre,Latitud,Longitud", ColumnsDataName: "IdLocation~Name~Latitude~Longitude", onSelectFunction: "BindFields")
+</div>
+
+<div class="col-1" data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modalLugar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Terminal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="bs-component">
+                            <form>
+
+                                <fieldset id="fsEditTerminalLoc">
+                                    @Html.CtrlInput(id: "txtTerminalLocId", type: "number", label: "Terminal Location ID", columnDataName: "IdLocation")
+                                    <div class="pac-container pac-logo"></div>
+                                    @Html.CtrlInput(id: "txtLocName", type: "text", label: "Ubicación", columnDataName: "Name")
+                                    @Html.CtrlInput(id: "txtLocLat", type: "number", label: "Latitud", columnDataName: "Latitude")
+                                    @Html.CtrlInput(id: "txtLocLong", type: "number", label: "Longitud", columnDataName: "Longitude")
+                                    @Html.CtrlMap(viewName: "vLocation", id: "mapLugar", name: "Localización del lugar", latitude: "9.9281", longitude: "-84.0907")
+
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vLocation", id: "btnCreate", label: "Crear", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vLocation", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vLocation", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>

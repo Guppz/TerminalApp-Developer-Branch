@@ -1,0 +1,54 @@
+﻿
+
+@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/vAgreement.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<strong>Convenios</strong>
+<p class="text-muted">Listado, registro, edición y eliminación de Convenios con una Terminal</p>
+
+@Html.CtrlButton(viewName: "vAgreement", id: "btnOpenModal", label: "Crear Convenio", onClickFunction: "OpenModal")
+@Html.CtrlTable(viewName: "vAgreement", id: "tblAgreement", title: "Lista de Convenios",
+    columnsTitle: "ID,Institución,Correo de la Institución,Tipo de Convenio, Terminal, ID de Terminal", ColumnsDataName: "IdAgreement~InstituteName~InstituteEmail~AgreementType.AgreementTypeName~Terminal.Name~Terminal.IdTerminal", onSelectFunction: "BindFields")
+
+<div class="modal" tabindex="-1" role="dialog" id="agreementModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Convenio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form>
+                                <fieldset id="fsAgreementTerminal">
+                                    @Html.CtrlComboBox(id: "selectTerminal", label: "Terminal", idList: "Terminal", columnDataName: "IdTerminal")
+                                </fieldset>
+                                <fieldset id="fsAgreement">
+                                    @Html.CtrlInput(id: "txtAgreementID", type: "number", label: "ID del Convenio", columnDataName: "IdAgreement")
+                                    @Html.CtrlInput(id: "txtInstituteName", type: "text", label: "Nombre de la Institución", columnDataName: "InstituteName")
+                                    @Html.CtrlInput(id: "txtInstituteEmail", type: "email", label: "Correo de la Institución", columnDataName: "InstituteEmail")
+                                </fieldset>
+                                <fieldset id="fsAgreementType">
+                                    @Html.CtrlComboBox(id: "selectAgreementType", label: "Tipo de Convenio", idList: "AgreementType", columnDataName: "IdAgreementType")
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vAgreement", id: "btnCreate", label: "Crear", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vAgreement", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vAgreement", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>

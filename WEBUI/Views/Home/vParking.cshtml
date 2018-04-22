@@ -1,0 +1,59 @@
+﻿
+
+@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/vParking.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-4" data-step="1" data-intro="Bienvenido a la administración de parqueos, en esta vista podrá crear, actualizar y eliminar parqueos.">Gestión de Parqueos</h1>
+<div class="col-3" data-step="2" data-intro="Seguidamente la funcionabilidad de  'crear parqueo', en esta sección podrá hacer la creación de los respectivos parqueos que desee ">
+
+    @Html.CtrlButton(viewName: "vParking", id: "btnOpenModal", label: "Crear Parqueo", onClickFunction: "OpenModal")
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+
+</div>
+<div data-step="4" data-intro="Lista de todos los parqueos registrados previamente en el sistema, que podrá gestionar de igual forma con solo presionar uno de los parqueos en la lista">
+
+    @Html.CtrlTable(viewName: "vParking", id: "tblParking", title: "Lista Parqueo",
+                columnsTitle: "Terminal,Tipo Parqueo,Cantidad de Espacios,Espacios Ocupados, Costo", ColumnsDataName: "Terminal.Name~ParkingTypeName~AvailableSpaces~OccupiedSpces~RentalCost", onSelectFunction: "BindFields")
+</div>
+
+<div class="col-1" data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar Parqueos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlComboBox(id: "terminalComboBox", label: "Terminal", idList: "Terminal", columnDataName: "Terminal")
+                                @Html.CtrlComboBox(id: "typeComboBox", label: "Tipo de parqueo", idList: "ParkingType", columnDataName: "ParkingType")
+                                @Html.CtrlInput(id: "txtEspacios", type: "number", label: "Espacios Disponibles", columnDataName: "AvailableSpaces")
+                                @Html.CtrlInput(id: "txtOcupados", type: "number", label: "Espacios Ocupados", columnDataName: "OccupiedSpces")
+                                @Html.CtrlInput(id: "txtCosto", type: "number", label: "Costo", columnDataName: "RentalCost")
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vParking", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vParking", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vParking", id: "btnDelete", label: "Eliminar", onClickFunction: "SatatusAlertDesactive", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>

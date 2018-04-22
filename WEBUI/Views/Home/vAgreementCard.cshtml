@@ -1,0 +1,64 @@
+﻿
+@using WEBUI.Models.Helpers;
+<script src="~/Scripts/Views/vAgreementCards.js"></script>
+@*<script src="~/Scripts/xlsx.full.min.js"></script>*@
+<script src="~/Scripts/xlsx.core.min.js"></script>
+<script src="~/Scripts/moment.min.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-10" data-step="1" data-intro="Bienvenido a la administración de tarjetas para convenios, en esta vista podrá crear tarjetas para un convenio en especifico...">Gestión de Tarjetas para Convenios</h1>
+<a data-step="2" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+<br /><br />
+<div data-step="3" data-intro="Lista de todas las tarjetas para convenios registradas previamente en el sistema">
+
+    @Html.CtrlTable(viewName: "vAgreementCards", id: "tblAgreement", title: "Lista de Convenios",
+            columnsTitle: "ID,Institución,Correo de la Institución,Tipo de Convenio, Terminal, ID de Terminal", ColumnsDataName: "IdAgreement~InstituteName~InstituteEmail~AgreementType.AgreementTypeName~Terminal.Name~Terminal.IdTerminal", onSelectFunction: "BindFields")
+</div>
+
+<div class="col-1" data-step="4" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+<div class="modal" tabindex="-1" role="dialog" id="agreementModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registro de tarjetas para convenio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form>
+                                @Html.CtrlInput(id: "textFile", type: "File", label: "Subir archivo de excel", columnDataName: "files")
+                                @Html.CtrlButton(viewName: "vAgreementCards", id: "btnCreate", label: "Subir archivo", onClickFunction: "Create", buttonType: "success")
+                                <fieldset id="fsAgreementTerminal">
+                                    <div class="invisible"style="display:none">
+                                        @Html.CtrlComboBox(id: "selectTerminal", label: "Terminal", idList: "Terminal", columnDataName: "IdTerminal")
+                                    </div>
+                                </fieldset>
+                                <fieldset id="fsAgreement"style="display:none">
+                                    <div class="invisible"style="display:none">
+                                        @Html.CtrlInput(id: "txtAgreementID", type: "number", label: "ID del Convenio", columnDataName: "IdAgreement")
+                                        @Html.CtrlInput(id: "txtInstituteName", type: "text", label: "Nombre de la Institución", columnDataName: "InstituteName")
+                                        @Html.CtrlInput(id: "txtInstituteEmail", type: "email", label: "Correo de la Institución", columnDataName: "InstituteEmail")
+                                    </div>
+                                </fieldset>
+                                <fieldset id="fsAgreementType"style="display:none">
+                                    <div class="invisible">
+                                        @Html.CtrlComboBox(id: "selectAgreementType", label: "Tipo de Convenio", idList: "AgreementType", columnDataName: "IdAgreementType")
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,138 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerminalApp", "TerminalApp\TerminalApp.csproj", "{0ED18B1F-744B-4513-886B-A4779272C34D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENTITIES_POJO", "ENTITIES-POJO\ENTITIES_POJO.csproj", "{27390BDC-D882-4D99-8FA0-51D8D510CBA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COREAPI", "COREAPI\COREAPI.csproj", "{E19B2BC0-3D9F-49B2-9F9B-801BA8991F16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATAACCESS", "DATAACCESS\DATAACCESS.csproj", "{C7DE5AC3-3265-4841-B315-4EC6F9F74877}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EXCEPTIONS", "EXCEPTIONMANAGER\EXCEPTIONS.csproj", "{B922CB78-A42B-4ED6-9754-7D93A4F25857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEBUI", "WEBUI\WEBUI.csproj", "{3C7C5659-EA57-46E9-8917-B37CCE77A691}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{81DCA46F-5005-4834-B29B-4EFF88AA3FE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParqueoSerivce", "ParqueoSerivce\ParqueoSerivce.csproj", "{04043A50-88B4-4B34-BB71-5DA0F812AB74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusService", "BusService\BusService.csproj", "{20B3FBA4-D11B-4D63-98FE-043BEFC5E003}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reports", "Reports\Reports.rptproj", "{1F3BC219-C8C1-400F-83B8-E37274EE58B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugLocal|Any CPU = DebugLocal|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0ED18B1F-744B-4513-886B-A4779272C34D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED18B1F-744B-4513-886B-A4779272C34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED18B1F-744B-4513-886B-A4779272C34D}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED18B1F-744B-4513-886B-A4779272C34D}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{0ED18B1F-744B-4513-886B-A4779272C34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED18B1F-744B-4513-886B-A4779272C34D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27390BDC-D882-4D99-8FA0-51D8D510CBA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27390BDC-D882-4D99-8FA0-51D8D510CBA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27390BDC-D882-4D99-8FA0-51D8D510CBA3}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{27390BDC-D882-4D99-8FA0-51D8D510CBA3}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{27390BDC-D882-4D99-8FA0-51D8D510CBA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27390BDC-D882-4D99-8FA0-51D8D510CBA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E19B2BC0-3D9F-49B2-9F9B-801BA8991F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E19B2BC0-3D9F-49B2-9F9B-801BA8991F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E19B2BC0-3D9F-49B2-9F9B-801BA8991F16}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{E19B2BC0-3D9F-49B2-9F9B-801BA8991F16}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{E19B2BC0-3D9F-49B2-9F9B-801BA8991F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E19B2BC0-3D9F-49B2-9F9B-801BA8991F16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7DE5AC3-3265-4841-B315-4EC6F9F74877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7DE5AC3-3265-4841-B315-4EC6F9F74877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7DE5AC3-3265-4841-B315-4EC6F9F74877}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7DE5AC3-3265-4841-B315-4EC6F9F74877}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{C7DE5AC3-3265-4841-B315-4EC6F9F74877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7DE5AC3-3265-4841-B315-4EC6F9F74877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B922CB78-A42B-4ED6-9754-7D93A4F25857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B922CB78-A42B-4ED6-9754-7D93A4F25857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B922CB78-A42B-4ED6-9754-7D93A4F25857}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{B922CB78-A42B-4ED6-9754-7D93A4F25857}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{B922CB78-A42B-4ED6-9754-7D93A4F25857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B922CB78-A42B-4ED6-9754-7D93A4F25857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C7C5659-EA57-46E9-8917-B37CCE77A691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7C5659-EA57-46E9-8917-B37CCE77A691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C7C5659-EA57-46E9-8917-B37CCE77A691}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7C5659-EA57-46E9-8917-B37CCE77A691}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{3C7C5659-EA57-46E9-8917-B37CCE77A691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C7C5659-EA57-46E9-8917-B37CCE77A691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DCA46F-5005-4834-B29B-4EFF88AA3FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DCA46F-5005-4834-B29B-4EFF88AA3FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DCA46F-5005-4834-B29B-4EFF88AA3FE9}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DCA46F-5005-4834-B29B-4EFF88AA3FE9}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{81DCA46F-5005-4834-B29B-4EFF88AA3FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DCA46F-5005-4834-B29B-4EFF88AA3FE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04043A50-88B4-4B34-BB71-5DA0F812AB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04043A50-88B4-4B34-BB71-5DA0F812AB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04043A50-88B4-4B34-BB71-5DA0F812AB74}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{04043A50-88B4-4B34-BB71-5DA0F812AB74}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{04043A50-88B4-4B34-BB71-5DA0F812AB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04043A50-88B4-4B34-BB71-5DA0F812AB74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20B3FBA4-D11B-4D63-98FE-043BEFC5E003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B3FBA4-D11B-4D63-98FE-043BEFC5E003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B3FBA4-D11B-4D63-98FE-043BEFC5E003}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B3FBA4-D11B-4D63-98FE-043BEFC5E003}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{20B3FBA4-D11B-4D63-98FE-043BEFC5E003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B3FBA4-D11B-4D63-98FE-043BEFC5E003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F3BC219-C8C1-400F-83B8-E37274EE58B7}.Debug|Any CPU.ActiveCfg = Debug
+		{1F3BC219-C8C1-400F-83B8-E37274EE58B7}.Debug|Any CPU.Build.0 = Debug
+		{1F3BC219-C8C1-400F-83B8-E37274EE58B7}.Debug|Any CPU.Deploy.0 = Debug
+		{1F3BC219-C8C1-400F-83B8-E37274EE58B7}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
+		{1F3BC219-C8C1-400F-83B8-E37274EE58B7}.DebugLocal|Any CPU.Build.0 = DebugLocal
+		{1F3BC219-C8C1-400F-83B8-E37274EE58B7}.Release|Any CPU.ActiveCfg = Release
+		{1F3BC219-C8C1-400F-83B8-E37274EE58B7}.Release|Any CPU.Build.0 = Release
+		{1F3BC219-C8C1-400F-83B8-E37274EE58B7}.Release|Any CPU.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E490925-4095-43F2-8662-7CECB4DFFA90}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://proyectodos.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = COREAPI\\COREAPI.csproj
+		SccProjectName1 = COREAPI
+		SccLocalPath1 = COREAPI
+		SccProjectUniqueName2 = DATAACCESS\\DATAACCESS.csproj
+		SccProjectName2 = DATAACCESS
+		SccLocalPath2 = DATAACCESS
+		SccProjectUniqueName3 = ENTITIES-POJO\\ENTITIES_POJO.csproj
+		SccProjectName3 = ENTITIES-POJO
+		SccLocalPath3 = ENTITIES-POJO
+		SccProjectUniqueName4 = TerminalApp\\TerminalApp.csproj
+		SccProjectName4 = TerminalApp
+		SccLocalPath4 = TerminalApp
+		SccProjectUniqueName5 = WEBUI\\WEBUI.csproj
+		SccProjectName5 = WEBUI
+		SccLocalPath5 = WEBUI
+		SccProjectUniqueName6 = EXCEPTIONMANAGER\\EXCEPTIONS.csproj
+		SccProjectName6 = EXCEPTIONMANAGER
+		SccLocalPath6 = EXCEPTIONMANAGER
+		SccProjectUniqueName7 = Testing\\Testing.csproj
+		SccProjectName7 = Testing
+		SccLocalPath7 = Testing
+		SccProjectUniqueName8 = ParqueoSerivce\\ParqueoSerivce.csproj
+		SccProjectName8 = ParqueoSerivce
+		SccLocalPath8 = ParqueoSerivce
+		SccProjectUniqueName9 = BusService\\BusService.csproj
+		SccProjectName9 = BusService
+		SccLocalPath9 = BusService
+		SccProjectUniqueName10 = Reports\\Reports.rptproj
+		SccProjectName10 = Reports
+		SccLocalPath10 = Reports
+	EndGlobalSection
+EndGlobal

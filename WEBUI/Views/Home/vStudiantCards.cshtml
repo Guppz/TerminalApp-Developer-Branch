@@ -1,0 +1,41 @@
+﻿
+
+@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/vStudiantCards.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.CtrlTable(viewName: "vStudiantCards", id: "tblStudiantCards", title: "Lista de tarjetas",
+    columnsTitle: "GIN,Usuario,Estado,Tipo Tarjeta,Terminal", ColumnsDataName: "IdCard~User.Name~Status~CrType.CardName~Terminal.Name", onSelectFunction: "BindFields")
+@Html.CtrlButton(viewName: "vStudiantCards", id: "btnFillTable", label: "Ver tarjetas desactivadas", onClickFunction: "openActiveWindow", buttonType: "success")
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Informacion de Tarjetas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtGin", type: "text", label: "GIN", columnDataName: "IdCard")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vStudiantCards", id: "btnDelete", label: "Desactivar Tarjeta", onClickFunction: "Delete", buttonType: "success")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

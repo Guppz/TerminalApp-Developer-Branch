@@ -1,0 +1,51 @@
+﻿
+
+@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/vAddCards.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-4" data-step="1" data-intro="Bienvenido a la administración de tarjetas, en esta vista podrá asignar tarjetas a los usuarios previamente registrados en el sistema... ">Gestión de Tarjetas</h1>
+<a data-step="2" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+<br /><br />
+
+<div data-step="3" data-intro="Lista de todos los usuarios por terminal registradas previamente en el sistema, que podrá gestionar de igual forma con solo presionar una uno de ellao en la lista">
+
+    @Html.CtrlTable(viewName: "vAddCards", id: "tblUser", title: "Lista de usuarios de la terminal",
+                     columnsTitle: "Cédula,Nombre,Apellidos,Correo Electrónico,Role", ColumnsDataName: "Identification~Name~LastName~Email~Roleslist[, ].Name", onSelectFunction: "BindFields")
+</div>
+
+<div class="col-1" data-step="4" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar Tarjeta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtPkIdUser", type: "number", label: "Cédula", columnDataName: "Identification")
+                                @Html.CtrlInput(id: "txtNotificaion", type: "number", label: "Dias para cada notificación", columnDataName: "DaysForNotification")
+                                @Html.CtrlComboBox(id: "cardTypeComboBox", label: "Tipo de tarjeta", idList: "CardType", columnDataName: "CardType")
+                                @Html.CtrlComboBox(id: "TerminalComboBox", label: "Terminal de la tarjeta", idList: "Terminal", columnDataName: "Terminal")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vAddCards", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
+            </div>
+        </div>
+    </div>
+</div>

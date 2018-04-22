@@ -1,0 +1,60 @@
+﻿@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/VSanction.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-4" data-step="1" data-intro="Bienvenido a la administración de sanciones, en esta vista podrá crear, actualizar y eliminar sanciones. Es necesario que existan tipos de sanciones ya que deben ser asignados cuando se registra una nueva sanción">Gestión de Sanciones</h1>
+<div class="col-3" data-step="2" data-intro="Seguidamente la funcionalidad de  'Crear Sancion', en esta sección podrá registrar sanciones cuando sea necesario">
+
+    @Html.CtrlButton(viewName: "VSanction", id: "btnOpenModal", label: "Registrar Sanción", onClickFunction: "openModal")
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+
+</div>
+<div data-step="4" data-intro="Lista de todas las sanciones registradas previamente en el sistema, que podrá gestionar de igual forma con solo presionar una de las sanciones en la lista">
+
+    @Html.CtrlTable(viewName: "VSanction", id: "tblSanctions", title: "Lista de Sanciones",
+                 columnsTitle: "ID Sanción,Terminal Penalizadora,Compañía Sancionada,Ruta,Tipo,Monto,Fecha", ColumnsDataName: "IdSanction~Terminal.Name~Company.Name~Route.Name~Type.Name~Type.Cost~Date", onSelectFunction: "bindFields")
+</div>
+
+<div class="col-1" data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar Sanciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtPkIdSanction", type: "number", label: "Número de Sanción", columnDataName: "IdSanction")
+                                @Html.CtrlComboBox(id: "terminalComboBox", label: "Terminal Penalizadora", idList: "Terminal", columnDataName: "Terminal")
+                                @Html.CtrlComboBox(id: "companyComboBox", label: "Compañía Sancionada", idList: "Company", columnDataName: "Company")
+                                @Html.CtrlComboBox(id: "routeComboBox", label: "Ruta Sancionada", idList: "", columnDataName: "Route")
+                                @Html.CtrlComboBox(id: "sanctionTypeComboBox", label: "Tipo de Sanción", idList: "", columnDataName: "Type")
+                                @Html.CtrlTextArea(id: "sanctionDescription", label: "Descripción (Puede modificarla si lo desea)", rows: 3, columnDataName: "Description")
+                                @Html.CtrlInput(id: "sanctionCost", type: "number", label: "Monto de la Sanción", columnDataName: "Cost")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "VSanction", id: "btnCreate", label: "Registrar", onClickFunction: "create", buttonType: "success")
+                @Html.CtrlButton(viewName: "VSanction", id: "btnUpdate", label: "Actualizar", onClickFunction: "update", buttonType: "info")
+                @Html.CtrlButton(viewName: "VSanction", id: "btnDelete", label: "Eliminar", onClickFunction: "alertDeactivationStatus", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

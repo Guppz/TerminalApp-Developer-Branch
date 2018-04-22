@@ -1,0 +1,36 @@
+﻿
+
+@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/Example.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.CtrlButton(viewName: "UiExample", id: "btnOpenModal", label: "Create Customer", onClickFunction: "OpenModal")
+@Html.CtrlTable(viewName: "UiExample", id: "tblCustomers", title: "Customer List",
+    columnsTitle: "Id,Name,LastName,Age", ColumnsDataName: "Id,Name,LastName,Age", onSelectFunction: "BindFields")
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Register Customers</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.CtrlInput(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
+                @Html.CtrlInput(id: "txtName", type: "text", label: "Name", columnDataName: "Name")
+                @Html.CtrlInput(id: "txtLastName", type: "text", label: "LastName", columnDataName: "LastName")
+                @Html.CtrlInput(id: "txtAge", type: "number", label: "Age", columnDataName: "Age")
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "UiExample", id: "btnCreate", label: "Save", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "UiExample", id: "btnUpdate", label: "Save changes", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "UiExample", id: "btnDelete", label: "Delete", onClickFunction: "Delete", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>

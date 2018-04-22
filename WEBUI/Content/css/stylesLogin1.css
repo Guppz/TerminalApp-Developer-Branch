@@ -1,0 +1,49 @@
+/*@font-face {
+  font-family: Fuentechida;
+  src: url(../fonts/OleoScript-Regular.ttf);
+}*/
+
+body {
+  background-image: url(../img/bus1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif;
+}
+.formLogIn h2, label, a, button, #setModify, #setLogin {
+    color: lemonchiffon;
+    text-decoration: none;
+}
+
+    #setModify:hover, #setLogin:hover {
+        color: #008cba;
+    }
+fieldset {
+    transition: 2s;
+    margin-bottom: 50px;
+    border-color: rgba(33, 0, 238, 0.5);
+    border-style: groove;
+    border-width: 5px;
+    border-radius: 20px;
+}
+.formLogIn {
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 397px;
+    border-radius: 25px;
+}
+
+fieldset {
+    transition: 2s;
+    margin-bottom: 50px;
+    border-color: rgba(33, 0, 238, 0.5);
+    border-style: groove;
+    border-width: 5px;
+    border-radius: 20px;
+}
+
+h3, h4 {
+  color: white;
+  text-align: center;
+  font-family: fuentechida;
+}

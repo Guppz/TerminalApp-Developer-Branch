@@ -1,0 +1,80 @@
+﻿@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/VSanctionType.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-4" data-step="1" data-intro="Bienvenido a la administración de  tipos de sanciones, en esta vista podrá crear, actualizar y eliminar tipos de sanciones. Si elimina un tipo de sanción ligada a una 'sanción', eliminará de forma automatica la sanción">Gestión de Tipo de Sanciones</h1>
+<div class="col-5" data-step="2" data-intro="Seguidamente la funcionabilidad de  'crear sanción', en esta sección podrá hacer la creación de los respectivas sanciones que desee ">
+
+    @Html.CtrlButton(viewName: "VSanctionType", id: "btnOpenModal", label: "Registrar Tipo de Sanción", onClickFunction: "OpenModal")
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+
+</div>
+<div data-step="4" data-intro="Lista de todos los tipos de sanciones registradas previamente en el sistema, que podrá gestionar de igual forma con solo presionar una de las sanciones en la lista">
+
+    @Html.CtrlTable(viewName: "VSanctionType", id: "tblSanctionsTypes", title: "Lista de Tipos de Sanciones",
+                columnsTitle: "Nombre,Nombre,Descripción,Monto", ColumnsDataName: "IdType~Name~Description~Cost", onSelectFunction: "bindFields")
+
+
+</div>
+
+<div class="col-1" data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+
+<div class="modal fade" id="alertBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertBoxHeader"></h5>
+            </div>
+            <div class="modal-body">
+                <p id="alertMessage">
+                    Existen sanciones asociadas a este tipo, si elimina este tipo eliminará también las sanciones, desea continuar?
+                </p>
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "VSanctionType", id: "btnCancelProcess", label: "Cancelar", onClickFunction: "cancelProcess", buttonType: "primary")
+                @Html.CtrlButton(viewName: "VSanctionType", id: "btnconfirmProcess", label: "Confirmar", onClickFunction: "delete", buttonType: "success")
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar Sanciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtPkIdType", type: "text", label: "ID del Tipo", columnDataName: "IdType")
+                                @Html.CtrlInput(id: "txtName", type: "text", label: "Nombre del Tipo", columnDataName: "Name")
+                                @Html.CtrlTextArea(id: "typeDescription", label: "Descripción", rows: 3, columnDataName: "Description")
+                                @Html.CtrlInput(id: "typeCost", type: "number", label: "Monto de la Sanción", columnDataName: "Cost")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "VSanctionType", id: "btnCreate", label: "Registrar", onClickFunction: "create", buttonType: "success")
+                @Html.CtrlButton(viewName: "VSanctionType", id: "btnUpdate", label: "Actualizar", onClickFunction: "update", buttonType: "info")
+                @Html.CtrlButton(viewName: "VSanctionType", id: "btnDelete", label: "Eliminar", onClickFunction: "alertDeactivationStatus", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

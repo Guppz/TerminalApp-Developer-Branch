@@ -1,0 +1,64 @@
+﻿
+
+@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/vBuses.js"></script>
+<script src="~/Scripts/moment.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-4" data-step="1" data-intro="Bienvenido a la administración de buses, en esta vista podrá crear, actualizar y eliminar buses.">Gestión de Buses</h1>
+<div class="col-3" data-step="2" data-intro="Seguidamente la funcionabilidad de  'crear bus', en esta sección podrá hacer la creación de los respectivas buses que desee ingresar en el sistema ">
+    @Html.CtrlComboBox(id: "CompanyComboBox", label: "Selecione la Compañia", idList: "Company", columnDataName: "companiaID")
+    @Html.CtrlButton(viewName: "vBus", id: "btnOpenModal", label: "Crear bus", onClickFunction: "OpenModal")
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+
+</div>
+<div data-step="4" data-intro="Lista de todos los buses registrado previamente en el sistema, que podrá gestionar de igual forma con solo presionar uno de los buses en la lista">
+
+    @Html.CtrlTable(viewName: "vBus", id: "tblBus", title: "Lista de buses",
+        columnsTitle: "ID,Modelo,Año,Asientos,Capacidad de Pie,Marca,Placa,Compañia,Estado", ColumnsDataName: "IdBus~Model~Year~Seats~Standing~Brand~Plate~Company.Name~ActiveString", onSelectFunction: "BindFields")
+</div>
+
+<div class="col-1" data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar Bus</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtIdBus", type: "Text", label: "ID", columnDataName: "IdBus")
+                                @Html.CtrlInput(id: "txtPlaca", type: "Text", label: "Placa del bus", columnDataName: "Plate")
+                                @Html.CtrlInput(id: "txtModel", type: "text", label: "Modelo", columnDataName: "Model")
+                                @Html.CtrlInput(id: "txtYear", type: "number", label: "Año", columnDataName: "Year")
+                                @Html.CtrlInput(id: "txtBrand", type: "text", label: "Marca", columnDataName: "Brand")
+                                @Html.CtrlInput(id: "txtAsientos", type: "number", label: "Asientos", columnDataName: "Seats")
+                                @Html.CtrlInput(id: "txtPie", type: "number", label: "Capacidad en Pie", columnDataName: "Standing")
+                                @Html.CtrlInput(id: "txtMarchamo", type: "date", label: "Marchamo", columnDataName: "ExpiryMarchamo")
+                                @Html.CtrlInput(id: "txtReteve", type: "date", label: "Reteve", columnDataName: "ExpiryReteve")
+                                @Html.CtrlInput(id: "txtSeguro", type: "date", label: "Seguro", columnDataName: "ExpirySeguro")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vBus", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vBus", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vBus", id: "btnDelete", label: "Eliminar", onClickFunction: "SatatusAlertDesactive", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/cleave.min.js"></script>

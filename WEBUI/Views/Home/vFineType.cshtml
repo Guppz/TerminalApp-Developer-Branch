@@ -1,0 +1,80 @@
+﻿@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/FineType.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-6" data-step="1" data-intro="Bienvenido a la administración de tipos de multas, en esta vista podrá gestionar tipos de multas">Gestión de Tipo de Multa</h1>
+<div class="col-3" data-step="2" data-intro="Seguidamente la funcionabilidad de  'crear tipo de multa', en esta sección podrá hacer la creación de los respectivos tipos de multas que desee ">
+
+    @Html.CtrlButton(viewName: "vFineType", id: "btnOpenModal", label: "Crear tipo de multa", onClickFunction: "OpenModal")
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+</div>
+<div data-step="4" data-intro="Lista de todos los tipos de multas registrados previamente en el sistema, que podrá gestionar de igual forma con solo presionar uno de los tipos de multas presentes en la lista">
+
+    @Html.CtrlTable(viewName: "vFineType", id: "tblFineType", title: "Lista de tipos de multas",
+                columnsTitle: "Id,Nombre,Descripción,Costo", ColumnsDataName: "IdType~TypeName~TypeDescription~Cost", onSelectFunction: "BindFields")
+</div>
+
+<div class="col-1" data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+<div class="modal fade" id="alertBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertBoxHeader"></h5>
+            </div>
+            <div class="modal-body">
+                <p id="alertMessage">
+                    Existen multas asociadas a este tipo, si elimina este tipo eliminará también las multas asociadas, desea continuar?
+                </p>
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vFineType", id: "btnCancelProcess", label: "Cancelar", onClickFunction: "cancelProcess", buttonType: "primary")
+                @Html.CtrlButton(viewName: "vFineType", id: "btnconfirmProcess", label: "Confirmar", onClickFunction: "delete", buttonType: "success")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar tipo de multa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtPkIdFineType", type: "number", label: "ID", columnDataName: "IdType")
+                                @Html.CtrlInput(id: "txtName", type: "text", label: "Nombre del tipo de multa", columnDataName: "TypeName")
+                                @Html.CtrlInput(id: "txtDescription", type: "textarea", label: "Descripcion de la multa", columnDataName: "TypeDescription")
+                                @Html.CtrlInput(id: "txtCost", type: "number", label: "Costo del tipo de multa", columnDataName: "Cost")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vFineType", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vFineType", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vFineType", id: "btnDelete", label: "Eliminar", onClickFunction: "verifyIfHasDependencies", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

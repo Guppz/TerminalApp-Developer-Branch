@@ -1,0 +1,61 @@
+﻿@using WEBUI.Models.Helpers;
+<script src="~/Scripts/Views/vRole.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<h1 id="tituloGestiones"class="col-4" data-step="1" data-intro="Bienvenido a la administración de roles, en esta vista podrá asignar roles a cada uno de los usuarios registrados previamente en el sistema">Gestión de Roles</h1>
+<div  class="col-3"  data-step="2" data-intro="Seguidamente la funcionabilidad de  'crear rol'  en esta sección podrá hacer la creación de los respectivos roles que desee ">
+    @Html.CtrlButton(viewName: "vRole", id: "btnOpenModal", label: "Crear rol", onClickFunction: "OpenModal")
+    <a  data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+</div>
+<div data-step="4" data-intro="Lista de todos los roles registrados previamente en el sistema, que podrá gestionar de igual forma con solo presionar uno de los roles en la lista">
+    @Html.CtrlTable(viewName: "vRole", id: "tblRole", title: "Lista de roles",
+                            columnsTitle: "Id,Nombre del Rol,Estado,Vistas  disponibles por rol", ColumnsDataName: "IdRole~Name~statusActivate~ViewsPerRole[, ].ViewName", onSelectFunction: "BindFields")
+</div>
+
+<div class="col-1"  data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h5 class="modal-title">Registrar Rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtIdRole", type: "number", label: "Id", columnDataName: "IdRole")
+                                @Html.CtrlInput(id: "txtName", type: "text", label: "Nombre del rol", columnDataName: "Name")
+                                @Html.CtrlCheckBoxList(idList: "View", labelName: "Vistas disponibles por rol", columnDataName: "ViewsPerRole")
+                                <div class="invisible">
+
+                                    @Html.CtrlInput(id: "txtDatos", type: "text", label: "Nombre del rol", columnDataName: "Status")
+
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vRole", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vRole", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vRole", id: "btnActivate", label: "Activar", onClickFunction: "SatatusAlertActive", buttonType: "warning")
+                @Html.CtrlButton(viewName: "vRole", id: "btnDesactive", label: "Desactivar", onClickFunction: "SatatusAlertDesactive", buttonType: "danger")
+
+            </div>
+        </div>
+    </div>
+</div>

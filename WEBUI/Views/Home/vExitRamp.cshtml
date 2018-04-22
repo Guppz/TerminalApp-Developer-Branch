@@ -1,0 +1,67 @@
+﻿
+@using WEBUI.Models.Helpers;
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzxYV3RHLfsFlryZzBzKcdlNpJt0Idyk4&libraries=places"></script>
+<script src="~/Scripts/Views/vExitRamp.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 id="tituloGestiones" class="col-10" data-step="1" data-intro="Bienvedido a la administración de rampas de salida, en esta vista podrá crear, actualizar y eliminar rampas de salida.">Gestión de Rampas de Salida</h1>
+
+<div class="col-4" data-step="2" data-intro="Seguidamente la funcionabilidad de  'crear rampas de salida', en esta sección podrá hacer la creación de los respectivas rampas de salida que desee ">
+
+    @Html.CtrlButton(viewName: "vExitRamp", id: "btnOpenModal", label: "Registrar Rampa de Salida", onClickFunction: "OpenModal")
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+
+</div>
+<div  class="col-xs-12">
+    @Html.CtrlComboBox(id: "selectTerminal", idList: "terminal", label: "Terminal:", columnDataName: "", viewname: "")
+</div>
+
+<div data-step="4" data-intro="Lista de todas las rampas de salida registradas previamente en el sistema, que podrá gestionar de igual forma con solo presionar una de las rampas en la lista">
+
+    @Html.CtrlTable(viewName: "vExitRamp", id: "tblExitRamp", title: "Rampas de Salida",
+            columnsTitle: "ID de Terminal,Terminal,Rampa,Ruta,Próximo Día,Próxima Hora,Próximo Bus,Siguiente Dia, Siguiente Hora,Siguiente Bus",
+            ColumnsDataName: "Terminal.IdTerminal~Terminal.Name~Name~Route.Name~CurrentTravel.Schedule.Day~CurrentTravel.Schedule.DepartHour~CurrentTravel.Bus.Plate~NextTravel.Schedule.Day~NextTravel.Schedule.DepartHour~NextTravel.Bus.Plate", onSelectFunction: "BindFields")
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalExitRamp">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rampa de Salida</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="bs-component">
+                            <form>
+                                <fieldset id="fsEditExitRamp">
+                                    @Html.CtrlInput(id: "txtExitRampId", type: "number", label: "ID de la Rampa de Salida", columnDataName: "IdExitRamp")
+                                    @Html.CtrlInput(id: "txtExitRampName", type: "text", label: "Nombre de la Rampa de Salida", columnDataName: "Name")
+                                </fieldset>
+                                <fieldset id="fsEditExitRampRoute">
+                                    <label for="selectRoute">Ruta:</label>
+                                    <select id="selectRoute" class="form-control" columndataname="IdRoute"></select>
+                                    <div class="invalid-feedback" columndataname="IdRoute"></div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vExitRamp", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vExitRamp", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vExitRamp", id: "btnDelete", label: "Eliminar", onClickFunction: "alertDeactivationStatus", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>

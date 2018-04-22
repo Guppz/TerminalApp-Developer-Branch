@@ -1,0 +1,80 @@
+﻿@using WEBUI.Models.Helpers;
+
+<script src="~/Scripts/Views/VComplaint.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-4" data-step="1" data-intro="Bienvenido a la administración de quejas, en esta vista podrá crear, actualizar y eliminar quejas. ">Gestión de Quejas</h1>
+<div class="col-3" data-step="2" data-intro="Seguidamente la funcionalidad de  'Crear Queja', en esta sección podrá registrar quejas cuando sea necesario">
+
+    @Html.CtrlButton(viewName: "VComplaint", id: "btnOpenModal", label: "Enviar Queja", onClickFunction: "openModal")
+
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+
+</div>
+<div data-step="4" data-intro="Lista de todas las quejas registradas previamente en el sistema, que podrá gestionar de igual forma con solo presionar una de las quejas en la lista">
+
+
+    @Html.CtrlTable(viewName: "VComplaint", id: "tblComplaints", title: "Lista de Quejas",
+                columnsTitle: "ID Queja,Terminal,Compañía,Chofer,Autobús,Fecha", ColumnsDataName: "IdComplaint~Terminal.Name~Company.Name~Driver.Name~Bus.Plate~Date", onSelectFunction: "bindFields")
+</div>
+
+<div class="col-1" data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+
+<div class="modal fade" id="alertBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertBoxHeader">Queja Registrada</h5>
+            </div>
+            <div class="modal-body">
+                <p id="alertMessage">
+                    Su queja ha sido registrada <br /><br />
+                    Un email ha sido enviado a la terminal que ha dirigido su queja <br /><br /><strong>Nuestro objetivo es siempre brindar mejorar el servicio</strong>
+                </p>
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "VComplaint", id: "btnconfirmProcess", label: "Aceptar", onClickFunction: "confirm", buttonType: "success")
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Enviar Queja</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtPkIdComplaint", type: "number", label: "Número de Queja", columnDataName: "IdComplaint")
+                                @Html.CtrlComboBox(id: "terminalComboBox", label: "Terminal", idList: "Terminal", columnDataName: "Terminal")
+                                @Html.CtrlComboBox(id: "companyComboBox", label: "Empresa Autobuses", idList: "Company", columnDataName: "Company")
+                                @Html.CtrlComboBox(id: "driverComboBox", label: "Nombre del Chofer (Sí lo cononce)", idList: "", columnDataName: "Driver")
+                                @Html.CtrlComboBox(id: "plateComboBox", label: "Placa del Autobús (Sí la conoce)", idList: "", columnDataName: "Plate")
+                                @Html.CtrlTextArea(id: "complaintDescription", label: "Motivo", rows: 3, columnDataName: "Description")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "VComplaint", id: "btnCreate", label: "Registrar", onClickFunction: "create", buttonType: "success")
+                @Html.CtrlButton(viewName: "VComplaint", id: "btnUpdate", label: "Actualizar", onClickFunction: "update", buttonType: "info")
+                @Html.CtrlButton(viewName: "VComplaint", id: "btnDelete", label: "Eliminar", onClickFunction: "delete", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

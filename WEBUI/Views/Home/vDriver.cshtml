@@ -1,0 +1,58 @@
+﻿@using WEBUI.Models.Helpers;
+<script src="~/Scripts/Views/vDriver.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 id="tituloGestiones" class="col-4" data-step="1" data-intro="Bienvenido a la administración de choferes, en esta vista podrá crear, actualizar, activar o desactivar choferes">Gestión de Choferes</h1>
+<div class="col-3" data-step="2" data-intro="Seguidamente la funcionabilidad de  'crear chofer', en esta sección podrá hacer la creación de los respectivos choferes que desee ">
+
+    @Html.CtrlButton(viewName: "vDriver", id: "btnOpenModal", label: "Crear chofer", onClickFunction: "OpenModal")
+    <a data-step="3" data-intro="Especialmente para la ayuda con respecto a la navegación de la página " class="btn btn-large btn-warning" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Guíame</a>
+</div>
+<div data-step="4" data-intro="Lista de todos los choferes registrados previamente en el sistema, que podrá gestionar de igual forma con solo presionar uno de los choferes en la lista">
+
+    @Html.CtrlTable(viewName: "vDriver", id: "tblDriver", title: "Lista de Choferes",
+                columnsTitle: "Identificación,Nombre de chofer,Compañia Asociada,Estado", ColumnsDataName: "CardNumber~Name~Company.Name~statusActivate", onSelectFunction: "BindFields")
+</div>
+
+<div class="col-1" data-step="5" data-intro="Gracias por cosultar la ayuda de la página, esperemos que sea de gran ayuda..."></div>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar de chofer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtIdentidad", type: "number", label: "Identificación", columnDataName: "CardNumber")
+                                @Html.CtrlInput(id: "txtName", type: "text", label: "Nombre completo del chofer", columnDataName: "Name")
+                                @Html.CtrlComboBox(id: "companyComboBox", label: "Compañía Asociada", idList: "Company", columnDataName: "Company")
+
+                                <div class="invisible">
+
+                                    @Html.CtrlInput(id: "txtDatos", type: "text", label: "STATUS", columnDataName: "Status")
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                @Html.CtrlButton(viewName: "vDriver", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vDriver", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vDriver", id: "btnActivate", label: "Activar", onClickFunction: "SatatusAlertActive", buttonType: "warning")
+                @Html.CtrlButton(viewName: "vDriver", id: "btnDesactive", label: "Desactivar", onClickFunction: "SatatusAlertDesactive", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+</div>

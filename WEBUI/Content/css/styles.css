@@ -1,0 +1,917 @@
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+
+* {
+	box-sizing: border-box;
+	transition: all ease-in-out 250ms;
+}
+
+body {
+	margin: 0;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+	background: rgb(255, 255, 255);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.containerfooter{
+	width: 90%;
+	margin: 0 auto;
+	background: none;
+}
+
+h4{
+	font-size: 26px;
+	margin-bottom: 30px;
+}
+
+.container {
+	width: 95%;
+	max-width: 70em;
+	margin: 0 auto;
+}
+.container h2{
+	margin-top:0px;
+
+}
+h2{
+	
+    padding-top: 30px;
+
+}
+
+.clearfix::after,
+section::after,
+footer::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+
+/* Column system
+=================== */
+
+[class^=col-] {
+	width: 100%;
+	margin-top: 1em;
+}
+
+[class^=col-]:first-child {
+	margin-top: 0;
+}
+
+.col-1 {
+	width: 33.333334%;
+	float: left;
+}
+
+
+@media (min-width: 40rem) {
+
+	[class^=col-] {
+		float: left;
+		padding: 0 .5em;
+		margin-top: 0;
+	}
+
+	[class^=col-]:first-child {
+		padding-left: 0;
+	}
+
+	[class^=col-]:last-child {
+		padding-right: 0;
+	}
+
+	.col-3 {
+		width: 50%;
+	}
+
+	.col-1 {
+		width: 16.6666%;
+	}
+}
+
+
+
+.tituloLinea{
+	width: 100%;
+	height:90px;
+	background-color: #008cba !important;
+	color: white;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	text-align: center;
+	margin-top:550px;
+	
+    margin-bottom: 50px;
+
+}
+
+/* typography
+=================== */
+
+h1 {
+	font-weight: 300;
+	font-size: 1.7rem;
+	margin-top: 0;
+}
+
+p {
+	margin-top: 0;
+	line-height: 1.5;
+}
+
+p:last-of-type {
+	margin-bottom: 0;
+}
+
+.title {
+	font-size: 2.5rem;
+	margin-bottom: 1.5em;
+	font-weight: 900;
+	margin-top: 1em;
+}
+
+.title span {
+
+	font-weight: 300;
+	display: block;
+	font-size: .9em;
+}
+
+.title-cta {
+	margin: 0 0 .5em;
+}
+
+.unstyled-list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+@media (min-width:60rem) {
+
+	p {
+		font-size: 1.2rem;
+		line-height: 1.6;
+	}
+
+	.title {
+		font-size: 3.7rem;
+	}
+}
+
+/* buttons */
+
+.button {
+	display: inline-block;
+	font-size: 1.15rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-width: 2px;
+	border-style: solid;
+	padding: .5em 1.75em;
+}
+
+@media (min-width: 60rem) {
+	.button {
+		font-size: 1.5rem;
+	}
+}
+
+.button-small {
+	font-size: .7rem;
+	font-weight: 700;
+}
+
+.button-accent {
+	color: #00a6ff;
+	border-color: #0099ff;
+}
+
+.button-accent:hover,
+.button-accent:focus {
+	background: #00a6ff;
+	color: #232323;
+}
+
+.button-dark {
+	color: #232323;
+	border-color: #232323;
+}
+
+.button-dark:hover,
+.button-dark:focus {
+	background: #232323;
+	color: #00ff6c;
+}
+
+/* Parallax
+=================== */
+
+.parallax--bg,
+.parallax--box {
+	transition: initial;
+}
+
+
+
+/* header
+=================== */
+
+header {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 1em;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	display: inline-block;
+	margin: 1em;
+}
+
+nav a {
+	font-weight: 900;
+	text-decoration: none;
+	padding: .5em;
+	text-transform: uppercase;
+	color: white;
+	font-size: .8rem;
+}
+
+nav a:hover,
+nav a:focus {
+	color: #ddd;
+}
+
+@media (min-width:60rem) {
+	.logo {
+		float: left;
+	}
+
+	nav {
+		float: right;
+	}
+}
+
+
+/* hero-home
+=================== */
+
+.home-hero {
+	background-image: url(../img/bus2.jpg);
+	background-size: cover;
+	background-position: center;
+	padding: 10em 0;
+	color: #FFF;
+}
+
+@media (min-width: 60rem) {
+	.home-hero {
+		height: 100vh;
+		padding-top: 35vh;
+	}
+}
+
+
+/* hero-home
+=================== */
+
+.home-about-textbox {
+	background-color: #232323;
+	padding: 4em;
+	width: 100vw;
+	margin-left: -2.5%;
+	outline: 2px solid #00ff6c;
+	outline-offset: -2.5em;
+	color: #FFF;
+	position: relative;
+}
+
+.home-about-textbox h1 {
+	color: #00ff6c;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: .75em;
+	background: #232323;
+	padding: 0 .145em;
+}
+
+@media (min-width: 25rem) {
+	h1 {
+		font-size: 2rem;
+	}
+
+	.home-about-textbox {
+		padding: 5.5em;
+	}
+
+	.home-about-textbox h1 {
+		top: .6em;
+		padding: 0 .325em;
+	}
+}
+
+@media (min-width: 60rem) {
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	.home-about {
+		background-image: url(../img/bus2.jpg);
+		background-repeat: no-repeat;
+		padding-bottom: 10em;
+	}
+
+	.home-about-textbox {
+		width: 50%;
+		padding: 7em;
+		outline-offset: -3.75em;
+		margin-left: -2.5%;
+		top: -5em;
+		text-align: left;
+		box-shadow: 0 0 4em 0 rgba(0,0,0,.3);
+	}
+
+	.home-about-textbox h1 {
+		top: .75em;
+		left: 6rem;
+		transform: translateX(0);
+	}
+
+
+}
+
+
+
+/* portfolio
+=================== */
+
+.portfolio {
+	margin: 3em 0 0;
+}
+
+.port-item {
+	margin: 0;
+	position: relative;
+}
+
+.port-item img {
+	display: block;
+}
+
+.port-desc {
+	position: absolute;
+	z-index: 100;
+	bottom: 0em;
+	left: 0em;
+	right: 0em;
+	color: white;
+	background: rgba(0,0,0,.6);
+	padding-bottom: 2em;
+}
+
+.port-desc p {
+	margin: 1em;
+}
+
+@media (min-width: 37rem) {
+	.port-item {
+		width: 50%;
+		float: left;
+	}
+}
+
+@media (min-width: 60rem) {
+	.port-item {
+		width: 500px;
+		overflow: hidden;
+	}
+
+	.port-desc {
+		transform: translateY(150%);
+	}
+
+	.port-item:hover .port-desc {
+		transform: translateY(0%);
+	}
+}
+.portfolio{
+	margin-left: 200px;
+
+}
+
+
+
+/* CTA
+=================== */
+
+.cta {
+	background-color: #00ff6c;
+	padding: 5em 0;
+}
+
+
+/* Footer
+=================== */
+.iconos, p{
+
+    margin-left: 11px;
+
+
+}
+.iconos{
+
+    padding-top: 100px;
+
+	width: 300px;
+	color: white;
+	float: right;
+
+}
+.contactos span{
+	font-weight: bold;
+	font-size: 16px;
+	margin-right: 5px;
+}
+
+.contactos ul li{
+display:block;
+float:left;
+padding:0 10px;
+}
+	
+	
+	
+.contactos h4{
+	
+ 
+
+    width: 185px;
+}
+
+.contactos{
+	
+    padding-top: 44px;
+
+	width: 400px;
+	color: white;
+	float: left;
+}
+
+.mapa{
+	width: 40%;
+	color: white;
+	padding-top: 70px;
+	float: right;
+	opacity: 0.9;
+}
+
+
+ul{
+	list-style-type: none;
+}
+
+
+.direccion span{
+	font-weight: bold;
+	font-size: 16px;
+	margin-right: 5px;
+}
+
+.direccion li{
+margin-bottom: 15px;
+}
+/* 
+footer{
+	height: 350px;
+	width: 100%;
+	background-color: #013344 !important;
+		border-bottom: solid 1px lightgray;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	} */
+	footer {
+		background-color: rgba(44, 62, 80, 1.0);
+	
+		width: 100%;
+		bottom: 0;
+		color: white;
+	}
+	.footerHeader{
+		width:100%;
+		padding:1em;
+		background-color:rgba(52, 73, 94,1.0);
+		text-align:center;
+		color:white;
+	}
+	footer h3{
+	}
+	footer ul{
+		padding-left:5px;
+		list-style:none;
+	}
+.jumbotron{
+    visibility:hidden;
+    color: white;
+}
+	footer p{
+		text-align : justify;
+		font-size : 12px;
+		font-family: 'Raleway', sans-serif;
+
+	}
+	footer iframe {
+		width:100%;
+		position:relative;
+		height:170px;
+	}
+	.sm{
+		list-style:none;
+		overflow:auto;
+	}
+	.sm li {
+		display: inline;
+		padding:5px;
+		float:left;
+	} 
+	.sm li a img {
+		width:32px;
+	}
+.footer2{
+	width: 100%;
+	background-color: #191919;
+	height: 50px;
+}
+
+.tituloHorarios{
+	height:90px;
+	background-color: #008cba !important;
+	color: white;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.tituloRutas{
+	height:90px;
+	background-color: #008cba !important;
+	color: white;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	
+    margin-top: 90px;
+    margin-bottom: 10px;
+
+}
+
+
+
+.sectHorario{
+	margin-left: 6%;
+	height: 100px;
+}
+.info{
+	margin-bottom: 20px;
+	margin-top: 40px;
+}
+
+.info h5{
+	text-align: left;
+	margin-top: 7px;
+}
+
+.info a{
+	background-color: #325868;
+	padding:3% 10%;
+	border-radius: 2px;
+	text-decoration: none;
+	color: white;
+	box-shadow: 1px 0px 5px 0px #dbdbdb;
+	margin-top: 100px;
+}
+.contHorarios{
+	width: 27%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color:#468dbb26;
+	float: left;
+	margin-right: 6%;
+	margin-top: 8%;
+	text-align: center;
+	padding: 14px 20px;
+	margin-bottom: 2 px;
+	/*position: relative;
+	bottom: 350px;*/
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px 1px #bcbcbc;
+	opacity: 0.9;
+	border: solid 1px lightgray;
+}
+.iconoHorario h3,h5,p{
+	opacity: inherit;
+
+}
+
+
+.iconoHorario:last-child{
+margin-right:0%;
+}
+
+.iconoHorario{
+	background-color: #efefef;
+	width: 60%;
+	height: 150px;
+	border-radius: 360px;
+	padding-top: 35px;
+	border: solid 3px #325868;
+	margin-left: 53px;
+	margin-bottom: 20px;
+}
+
+.iconoHorario i{
+	margin-bottom:14px;
+	margin-top:10px;
+/*	color: #515151;*/
+}
+
+
+.iconoHorario img{
+	width: 60px;
+	height: 63px;
+	margin-bottom:14px;
+	margin-top:10px;
+}
+/*inicio slider*//*---------------------------------------------------*/
+.nivoSlider {
+	position:relative;
+	width:100%;
+	height:auto;
+	overflow: hidden;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	max-width: none;
+}
+.nivo-main-image {
+	display: block !important;
+	position: relative !important;
+	width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+	background:white;
+	filter:alpha(opacity=0);
+	opacity:0;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+	top:0;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+	overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	top: 40%;
+	left:0px;
+	bottom:0px;
+	font-family: sans-serif;
+	text-align: center;
+	color:#fff;
+	width:100%;
+	z-index:8;
+	padding: 5px 10px;
+	overflow: hidden;
+	display: none;
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+.theme-mi-slider .nivoSlider{
+	position:relative;
+}
+
+.theme-mi-slider .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+/* Nivo Pagination =========================*/
+
+.nivo-controlNav{
+	display: flex;
+	justify-content: center;
+}
+
+.theme-mi-slider .nivo-control{
+	display: block;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #545454;
+	margin: 3px;
+	text-indent: -9999px
+}
+
+.theme-mi-slider .nivo-control:hover{
+	background: #1B1B1B;
+}
+
+.theme-mi-slider .active{
+	background: #1B1B1B;
+}
+
+/* Nivo direction ============*/
+.nivo-directionNav a{
+	display: block;
+	width: 30px;
+	height: 30px;
+}
+
+.nivo-directionNav .nivo-prevNav{
+	background-image: url(../img/circle-left.png);
+	background-size: cover;
+	text-indent: -9999px;
+	left: 6px;
+}
+
+.nivo-directionNav .nivo-nextNav{
+	background-image: url(../img/circle-right.png);
+	background-size: cover;
+	text-indent: -9999px;
+	right: 6px;
+}
+
+
+/*Nivo Caption*/
+
+.nivo-html-caption{
+	position: absolute;
+}
+
+.noticias{
+	height: 650px;
+	width: 100%;
+	background-color: gray;
+	margin-bottom: 10%;
+	margin-top: 8%;
+}
+
+
+/*fin slider*//*---------------------------------------------------*/
+
+.menuSesion{
+	background-color: #66b0cd;
+	padding: 3px 10px;
+	color: white;
+	margin-top: 13px;
+	border-radius: 3px;
+	padding-bottom: px;
+}
+
+.menuSesion:hover{
+	color: #000;
+}
+
+
+.maincontainer{
+	position: absolute;
+	width: 250px;
+	height: 320px;
+	background: none;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+  }
+  
+  /* THE CARD HOLDS THE FRONT AND BACK FACES */
+  .thecard{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	transform-style: preserve-3d;
+	transition: all 0.8s ease;
+  }
+  
+  /* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+  .thecard:hover{
+	transform: rotateY(180deg);
+  }
+  
+  /* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+   .thefront{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	backface-visibility: hidden;
+	overflow: hidden;
+	background: #ffc728;
+	color: #000;
+  }
+  
+  /* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+  .theback{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	backface-visibility: hidden;
+	overflow: hidden;
+	background: #fafafa;
+	color: #333;
+	text-align: center;
+	transform: rotateY(180deg);
+  }
+  
+  
+  /*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+  .thefront h1, .theback h1{
+	padding: 30px;
+	font-weight: bold;
+	font-size: 24px;
+	text-align: center;
+  }
+  
+  .thefront p, .theback p{
+	padding: 30px;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+  }
+
+
+
+
+
+
